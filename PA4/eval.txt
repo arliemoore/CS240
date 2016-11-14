@@ -1,0 +1,168 @@
+Author: Arlie Moore
+Date: 11/12/14
+PA4 Evaluation
+
+The process I used to find the best thresh hold value to use in merge_sort_switch was a pretty
+simple one. I basically just used trial and error with different values and looked to see how
+fast each one was with lists of different sizes. The first test I ran incremented the thresh hold
+by 5 and started at 0 and ended at 70. The reason I ended at 70 was because I know that binary
+insertion sort is faster for smaller size lists and in the graph that was put in our PA
+specification it showed that 55 was the thresh hold were merge sort became faster than
+binary insertion sort. After the tests were run I could see that this was indeed true because
+the times became slower after 55. From here I could see that from range about 5 to 30 was 
+faster than the rest of the values. Here is the output from that test. 
+
+Sorting 10 Random Lists of Size 5000
+Threshhold-> 0     merge_sort_switch            0.28765        55227.30       123616.00
+Threshhold-> 5     merge_sort_switch            0.25211        55132.90       108870.30
+Threshhold-> 10     merge_sort_switch            0.24012        55007.90       105456.00
+Threshhold-> 15     merge_sort_switch            0.23828        55006.50       105485.20
+Threshhold-> 20     merge_sort_switch            0.24487        54862.20       107966.50
+Threshhold-> 25     merge_sort_switch            0.24306        54857.40       107919.90
+Threshhold-> 30     merge_sort_switch            0.24510        54860.10       107791.10
+Threshhold-> 35     merge_sort_switch            0.24786        54854.50       107943.10
+Threshhold-> 40     merge_sort_switch            0.26765        54736.90       122475.70
+Threshhold-> 45     merge_sort_switch            0.26911        54735.10       122307.80
+Threshhold-> 50     merge_sort_switch            0.27078        54746.60       122411.30
+Threshhold-> 55     merge_sort_switch            0.29833        54717.50       122380.40
+Threshhold-> 60     merge_sort_switch            0.26724        54731.60       122238.70
+Threshhold-> 65     merge_sort_switch            0.26725        54719.10       122572.30
+Threshhold-> 70     merge_sort_switch            0.26761        54743.40       122461.40
+
+Sorting 10 Random Lists of Size 10000
+Threshhold-> 0     merge_sort_switch            0.60171       120462.70       267232.00
+Threshhold-> 5     merge_sort_switch            0.54125       120292.70       237725.40
+Threshhold-> 10     merge_sort_switch            0.52405       120002.70       230945.20
+Threshhold-> 15     merge_sort_switch            0.52565       120016.10       230823.50
+Threshhold-> 20     merge_sort_switch            0.53546       119709.60       235990.80
+Threshhold-> 25     merge_sort_switch            0.53169       119723.40       235955.00
+Threshhold-> 30     merge_sort_switch            0.52916       119725.90       235633.70
+Threshhold-> 35     merge_sort_switch            0.53916       119715.20       235843.00
+Threshhold-> 40     merge_sort_switch            0.58187       119484.30       265406.40
+Threshhold-> 45     merge_sort_switch            0.57999       119468.10       264993.80
+Threshhold-> 50     merge_sort_switch            0.58427       119481.60       264968.50
+Threshhold-> 55     merge_sort_switch            0.58463       119474.90       264686.60
+Threshhold-> 60     merge_sort_switch            0.58356       119477.70       264976.50
+Threshhold-> 65     merge_sort_switch            0.58640       119469.30       265110.00
+Threshhold-> 70     merge_sort_switch            0.58846       119471.70       265044.80
+
+After this test was complete I decided to make the scope smaller and start testing the values
+from 5 - 30 and see what would come out of it. Because the lists are random I decided to run the
+same test 3 times so that I would be able to average the times and see which came out as the
+overall fastest. I also ran these tests on lists of size 5,000 and 10,000 so that I 
+could see if the size would effect the thresh hold. 
+
+Test Averages with 5,000 items
+Thresh Hold = 5 --- Average of 3 runs = 0.2684
+Thresh Hold = 6 --- Average of 3 runs = 0.2546
+Thresh Hold = 7 --- Average of 3 runs = 0.256
+Thresh Hold = 8 --- Average of 3 runs = 0.2517
+Thresh Hold = 9 --- Average of 3 runs = 0.2509
+Thresh Hold = 10 --- Average of 3 runs = 0.243
+Thresh Hold = 11 --- Average of 3 runs = 0.2441
+Thresh Hold = 12 --- Average of 3 runs = 0.2456
+Thresh Hold = 13 --- Average of 3 runs = 0.243
+Thresh Hold = 14 --- Average of 3 runs = 0.2451
+Thresh Hold = 15 --- Average of 3 runs = 0.2445
+Thresh Hold = 16 --- Average of 3 runs = 0.2432
+Thresh Hold = 17 --- Average of 3 runs = 0.2437
+Thresh Hold = 18 --- Average of 3 runs = 0.2465
+Thresh Hold = 19 --- Average of 3 runs = 0.2461
+Thresh Hold = 20 --- Average of 3 runs = 0.2482
+Thresh Hold = 21 --- Average of 3 runs = 0.2464
+Thresh Hold = 22 --- Average of 3 runs = 0.2475
+Thresh Hold = 23 --- Average of 3 runs = 0.2471
+Thresh Hold = 24 --- Average of 3 runs = 0.247
+Thresh Hold = 25 --- Average of 3 runs = 0.2453
+Thresh Hold = 26 --- Average of 3 runs = 0.2485
+Thresh Hold = 27 --- Average of 3 runs = 0.247
+Thresh Hold = 28 --- Average of 3 runs = 0.2462
+Thresh Hold = 29 --- Average of 3 runs = 0.2465
+Thresh Hold = 30 --- Average of 3 runs = 0.2461
+
+Test Averages with 10,000 items
+Thresh Hold = 5 --- Average of 3 runs = 0.5516
+Thresh Hold = 6 --- Average of 3 runs = 0.5495
+Thresh Hold = 7 --- Average of 3 runs = 0.5555
+Thresh Hold = 8 --- Average of 3 runs = 0.5528
+Thresh Hold = 9 --- Average of 3 runs = 0.5455
+Thresh Hold = 10 --- Average of 3 runs = 0.5378
+Thresh Hold = 11 --- Average of 3 runs = 0.5368
+Thresh Hold = 12 --- Average of 3 runs = 0.5374
+Thresh Hold = 13 --- Average of 3 runs = 0.5348
+Thresh Hold = 14 --- Average of 3 runs = 0.5331
+Thresh Hold = 15 --- Average of 3 runs = 0.5352
+Thresh Hold = 16 --- Average of 3 runs = 0.5366
+Thresh Hold = 17 --- Average of 3 runs = 0.5338
+Thresh Hold = 18 --- Average of 3 runs = 0.5347
+Thresh Hold = 19 --- Average of 3 runs = 0.5356
+Thresh Hold = 20 --- Average of 3 runs = 0.5406
+Thresh Hold = 21 --- Average of 3 runs = 0.5453
+Thresh Hold = 22 --- Average of 3 runs = 0.5432
+Thresh Hold = 23 --- Average of 3 runs = 0.5399
+Thresh Hold = 24 --- Average of 3 runs = 0.5393
+Thresh Hold = 25 --- Average of 3 runs = 0.5446
+Thresh Hold = 26 --- Average of 3 runs = 0.5437
+Thresh Hold = 27 --- Average of 3 runs = 0.5405
+Thresh Hold = 28 --- Average of 3 runs = 0.5388
+Thresh Hold = 29 --- Average of 3 runs = 0.5427
+Thresh Hold = 30 --- Average of 3 runs = 0.542
+
+After gathering the averages, I came to the conclusion that the thresh hold of 13, 16, and 17
+were extremely similar and that they were the top 3 fastest times that my data had found.
+However, the thresh hold of 13 came in as victorious with being just a fraction faster than 16
+and 17. With all of this data I have gathered I am confident that the thresh hold of 13
+is the fastest on my computer and with the code I have written for merge_sort_switch. 
+
+------------------------------------------------------------------------------------
+
+Here is the output of the time_sorts main method with all the sorts being run. 
+
+Sorting 10 Random Lists of Size 100000
+    merge_sort                   7.61063      1536407.50      3337856.00
+    merge_sort_switch            6.82326      1531866.00      2972675.10
+    quick_sort                   4.10422      2048295.40       917658.80
+    quick_sort_median            4.06476      2005292.40       915679.60
+    intro_sort                   4.18221      2072819.10       915796.70
+
+Sorting 10 Random Lists of Size 5000
+    merge_sort                   0.27805        55215.80       123616.00
+    merge_sort_switch            0.23987        54998.10       105452.90
+    quick_sort                   0.14844        71123.70        36005.80
+    quick_sort_median            0.15512        76217.00        35387.00
+    intro_sort                   0.17141        73249.60        35770.40
+    selection_sort              17.15844     12497500.00         9998.00
+    insertion_sort              17.77064      6243476.90      6243486.60
+    binary_insertion_sort        9.35323        54497.50      6231240.90
+
+Sorting 10 Ordered Lists of Size 5000
+    merge_sort                   0.23681        32004.00       123616.00
+    merge_sort_switch            0.18589        32004.00        94488.00
+    quick_sort                  16.00238     12497500.00        19996.00
+    quick_sort_median            0.10461        65677.00        11808.00
+    intro_sort                   0.34052       151540.00        94128.00
+    selection_sort              17.09950     12497500.00         9998.00
+    insertion_sort               0.01354         4999.00         4999.00
+    binary_insertion_sort        0.08222        51822.00         4999.00
+
+The 3 fast sorts that I implemented were quick_sort_median, merge_sort_switch, and intro_sort. All
+of these methods preformed how I expected them to preform. 
+
+Quick_sort_median was the same speed as quick_sort on unordered lists, however, on ordered lists 
+quick_sort_median avoided the worst case running time for quick_sort. In the worst case for
+quick_sort it took over 12 million comparisons while quick_sort_median took a little over 65 thousand.
+This is a huge difference in performace. This change to quicksort is extremely easy and has a huge
+impact on the running speeds for lists that may be partially sorted already. 
+
+Merge_sort_switch also preformed better than merge_sort. The switch over to binary_insertion_sort
+with a thresh hold of 13 made it so that there were less comparisons and assignments. This in turn
+created a faster and more efficient sorting algorithm.
+
+Intro_sort was basically quick_sort and switched to merge sort when the recussion depth exceeded
+2 * log 2 n. This change made it a little slower than quick_sort on most of the tests. However, 
+this change was very important because it means that quick_sorts worst case will not occur and 
+that merge_sort_switch will finish the sorting in O(n log n) time instead of O(n^2) time. This
+method took a hit to its overall average times to avoid the very bad worst case of quick_sort. 
+
+Overall, I am very happy with the times that my methods produced and also understand much better
+how and when certain sorting algoithms should be used. 

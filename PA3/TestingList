@@ -1,0 +1,5 @@
+
+
+list = linked_list.LinkedList()
+
+list.add(5)
